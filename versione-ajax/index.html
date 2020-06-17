@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+        <link rel="stylesheet" href="../dist/style.css">
+        <title>Esercitazione #37.1 - Showroom dischi in PHP</title>
+    </head>
+    <body>
+        <header>
+            <img src="../dist/img/logo.png" alt="Logo">
+            <h1>Album Showroom</h1>
+            <select name="" id="author-list">
+                <option value="">--Filtra per autore--</option>
+            </select>
+        </header>
+        <main>
+            <div class="container">
+                <!-- Elenco album -->
+            </div>
+        </main>
+    </body>
+    <script src="main.js" charset="utf-8"></script>
+    <!-- TEMPLATE -->
+    <script id="album-card-template" type="text/x-handlebars-template">
+        <div class="album-card">
+            <div class="album-card-up">
+                <img src="{{img-url}}" alt="">
+                <h2>{{title}}</h2>
+                <h3>{{author}}</h3>
+            </div>
+            <div class="album-card-down">
+                <h4>{{genre}}</h4>
+                <h5>{{year}}</h5>
+            </div>
+        </div>
+    </script>
+    <script id="author-list-template" type="text/x-handlebars-template">
+        <option value="{{author}}">{{author}}</option>
+    </script>
+</html>
