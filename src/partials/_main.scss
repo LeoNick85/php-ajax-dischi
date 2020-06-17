@@ -2,6 +2,7 @@ main {
     background-color: $main_bgcolor;
 
     div.container {
+        min-height: 100vh;
         background-color: black;
         color: $alt_text_color;
         display: flex;

@@ -7,11 +7,26 @@ $(document).ready(function(){
             //Riempio il select con gli autori e il main con le card per tutti gli album del database
             authorList(data);
             printAlbum(data);
-            console.log(data);
         },
         error : function () {
             alert("E' avvenuto un errore. ");
         }
+    });
+
+    //Rifaccio la chiamata ajax in caso di cambio alla select dell'autore
+    $("#author-list").change(function(){
+        var selected_author = $(this).val();
+        $.ajax({
+            url : "database/disk_list.php",
+            method : "GET",
+            success : function (data) {
+                //Riempio il select con gli autori e il main con le card per tutti gli album del database
+                printAlbum(data, selected_author);
+            },
+            error : function () {
+                alert("E' avvenuto un errore. ");
+            }
+        });
     });
 })
 
@@ -49,6 +64,22 @@ function printAlbum(list, author_filter) {
             var template_function = Handlebars.compile(template_html);
             var html_finale = template_function(html_element);
             $("main div.container").append(html_finale);
+        }
+    } else {
+        for (var i = 0; i < list.length; i++) {
+            if (author_filter == list[i].author) {
+                var template_html = $("#album-card-template").html();
+                var html_element = {
+                    "img-url": list[i].poster,
+                    "title": list[i].title,
+                    "author": list[i].author,
+                    "genre": list[i].genre,
+                    "year": list[i].year
+                };
+                var template_function = Handlebars.compile(template_html);
+                var html_finale = template_function(html_element);
+                $("main div.container").append(html_finale);
+            }
         }
     }
 }
