@@ -1,0 +1,68 @@
+main {
+    background-color: $main_bgcolor;
+
+    div.container {
+        background-color: black;
+        color: $alt_text_color;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .album-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: $cardbg_color;
+        border-radius: 5px;
+        width: 180px;
+        height: 300px;
+        padding: 14px;
+        margin: 14px;
+
+        .album-card-up {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: space-between;
+
+
+            img {
+                width: 130px;
+                margin-bottom: 8px;
+            }
+
+            h2 {
+                font-size: 17px;
+                margin: 6px 0px;
+            }
+
+            h3 {
+                font-size: 15px;
+                color: $text_color;
+            }
+        }
+
+        .album-card-down {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: space-between;
+
+            h4 {
+                margin: 4px 0px;
+                width: 100%;
+                text-align: center;
+                padding: 6px;
+                font-size: 14px;
+                background-color: royalblue;
+            }
+
+            h5 {
+                font-size: 14px;
+            }
+        }
+    }
+}

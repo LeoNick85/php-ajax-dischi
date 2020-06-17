@@ -1,3 +1,4 @@
-body {
-    background-color: azure;
-}
+@import "partials/_variables.scss";
+@import "partials/_common.scss";
+@import "partials/_header.scss";
+@import "partials/_main.scss";

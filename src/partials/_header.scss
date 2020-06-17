@@ -1,0 +1,18 @@
+header {
+    background-color: $main_color;
+    border-bottom: 2px solid $text_color;
+    display: flex;
+    align-items: center;
+
+    img {
+        width: 80px;
+        margin: 20px;
+    }
+
+    h1 {
+        color: $text_color;
+        display: inline-block;
+        margin-left: 50px;
+        padding: 40px;
+    }
+}

@@ -1,4 +1,98 @@
-body {
-  background-color: azure;
+* {
+  margin: 0px;
+  border: 0px;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+header {
+  background-color: #4d4d4d;
+  border-bottom: 2px solid #b3b3b3;
+  display: flex;
+  align-items: center;
+}
+
+header img {
+  width: 80px;
+  margin: 20px;
+}
+
+header h1 {
+  color: #b3b3b3;
+  display: inline-block;
+  margin-left: 50px;
+  padding: 40px;
+}
+
+main {
+  background-color: #728884;
+}
+
+main div.container {
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+main .album-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #1e515c;
+  border-radius: 5px;
+  width: 180px;
+  height: 300px;
+  padding: 14px;
+  margin: 14px;
+}
+
+main .album-card .album-card-up {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+main .album-card .album-card-up img {
+  width: 130px;
+  margin-bottom: 8px;
+}
+
+main .album-card .album-card-up h2 {
+  font-size: 17px;
+  margin: 6px 0px;
+}
+
+main .album-card .album-card-up h3 {
+  font-size: 15px;
+  color: #b3b3b3;
+}
+
+main .album-card .album-card-down {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+main .album-card .album-card-down h4 {
+  margin: 4px 0px;
+  width: 100%;
+  text-align: center;
+  padding: 6px;
+  font-size: 14px;
+  background-color: royalblue;
+}
+
+main .album-card .album-card-down h5 {
+  font-size: 14px;
 }
 
