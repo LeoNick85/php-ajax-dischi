@@ -72,7 +72,21 @@
         ]
     ];
 
+
+    //Verifico se è indicato un autore, e, nel caso, faccio un array con i file corretti
+    if (empty($_GET["author"])) {
+        $dischi_richiesti = $dischi;
+    } else {
+        $selected_author = $_GET["author"];
+        $dischi_richiesti = [];
+        for ($i=0; $i < count($dischi) ; $i++) {
+            if (($dischi[$i]["author"]) == $selected_author){
+                $dischi_richiesti[] = $dischi[$i];
+            };
+        };
+    };
+
     header('Content-Type: application/json');
 
-    echo json_encode($dischi);
+    echo json_encode($dischi_richiesti);
 ?>

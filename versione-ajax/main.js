@@ -15,16 +15,20 @@ $(document).ready(function(){
 
     //Rifaccio la chiamata ajax in caso di cambio alla select dell'autore
     $("#author-list").change(function(){
-        var selected_author = $(this).val();
+        var selected_author = {
+            "author": $(this).val()
+        };
+        console.log(selected_author);
         $.ajax({
             url : "database/disk_list.php",
             method : "GET",
+            data: selected_author,
             success : function (data) {
                 //Riempio il select con gli autori e il main con le card per tutti gli album del database
-                printAlbum(data, selected_author);
+                printAlbum(data);
             },
             error : function () {
-                alert("E' avvenuto un errore. ");
+                alert("E' avvenuto un errore.");
             }
         });
     });
@@ -41,45 +45,26 @@ function authorList(list) {
         var template_function = Handlebars.compile(template_html);
         var html_finale = template_function(html_element);
         $("#author-list").append(html_finale);
-        console.log(list[i].author);
     }
 }
 
 //Funzione per stampare l'elenco degli album, eventualmente filtrando per autore
-function printAlbum(list, author_filter) {
+function printAlbum(list) {
     //Svuoto il contenitore
     $("main div.container").text("");
 
-    //Verifico se c'è un filtro per autore come parametro, e stampo le card di conseguenza
-    if (author_filter == null) {
-        for (var i = 0; i < list.length; i++) {
-            var template_html = $("#album-card-template").html();
-            var html_element = {
-                "img-url": list[i].poster,
-                "title": list[i].title,
-                "author": list[i].author,
-                "genre": list[i].genre,
-                "year": list[i].year
-            };
-            var template_function = Handlebars.compile(template_html);
-            var html_finale = template_function(html_element);
-            $("main div.container").append(html_finale);
-        }
-    } else {
-        for (var i = 0; i < list.length; i++) {
-            if (author_filter == list[i].author) {
-                var template_html = $("#album-card-template").html();
-                var html_element = {
-                    "img-url": list[i].poster,
-                    "title": list[i].title,
-                    "author": list[i].author,
-                    "genre": list[i].genre,
-                    "year": list[i].year
-                };
-                var template_function = Handlebars.compile(template_html);
-                var html_finale = template_function(html_element);
-                $("main div.container").append(html_finale);
-            }
-        }
+    //Stampo le card con ciclo for
+    for (var i = 0; i < list.length; i++) {
+        var template_html = $("#album-card-template").html();
+        var html_element = {
+            "img-url": list[i].poster,
+            "title": list[i].title,
+            "author": list[i].author,
+            "genre": list[i].genre,
+            "year": list[i].year
+        };
+        var template_function = Handlebars.compile(template_html);
+        var html_finale = template_function(html_element);
+        $("main div.container").append(html_finale);
     }
 }
